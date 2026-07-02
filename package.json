@@ -1,0 +1,24 @@
+{
+  "scripts": {
+    "dev": "npm run sync-tracks && next dev",
+    "build": "npm run sync-tracks && next build",
+    "start": "next start",
+    "sync-tracks": "node scripts/sync-tracks.mjs"
+  },
+  "dependencies": {
+    "@vercel/analytics": "latest",
+    "lucide-react": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
+}
