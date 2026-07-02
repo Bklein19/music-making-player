@@ -8,6 +8,95 @@ type Props = {
   tracks: Track[];
 };
 
+function getSceneKind(title: string) {
+  const lower = title.toLowerCase();
+  if (lower.includes("walk in the park")) return "park";
+  if (lower.includes("underwater")) return "underwater";
+  if (lower.includes("start your engines")) return "drive";
+  if (lower.includes("alien")) return "alien";
+  if (lower.includes("main menu")) return "menu";
+  return "menu";
+}
+
+function PixelLoop({ track }: { track: Track }) {
+  const scene = getSceneKind(track.title);
+
+  return (
+    <div className={`pixel-player pixel-scene-${scene}`} aria-label={`${track.title} pixel loop`}>
+      {scene === "park" ? (
+        <>
+          <div className="pixel-sky" />
+          <div className="pixel-cloud pixel-cloud-one" />
+          <div className="pixel-cloud pixel-cloud-two" />
+          <div className="pixel-hills" />
+          <div className="pixel-path" />
+          <div className="pixel-tree tree-one" />
+          <div className="pixel-tree tree-two" />
+          <div className="pixel-character walker" />
+          <div className="pixel-slime slime-one" />
+          <div className="pixel-slime slime-two" />
+        </>
+      ) : null}
+
+      {scene === "underwater" ? (
+        <>
+          <div className="pixel-water-rays" />
+          <div className="pixel-bubbles bubble-one" />
+          <div className="pixel-bubbles bubble-two" />
+          <div className="pixel-bubbles bubble-three" />
+          <div className="pixel-seafloor" />
+          <div className="pixel-coral coral-one" />
+          <div className="pixel-coral coral-two" />
+          <div className="pixel-diver" />
+          <div className="pixel-mermaid mermaid-one" />
+          <div className="pixel-mermaid mermaid-two" />
+          <div className="pixel-maraca maraca-one" />
+          <div className="pixel-maraca maraca-two" />
+        </>
+      ) : null}
+
+      {scene === "drive" ? (
+        <>
+          <div className="pixel-city city-back" />
+          <div className="pixel-road" />
+          <div className="pixel-lane lane-one" />
+          <div className="pixel-lane lane-two" />
+          <div className="pixel-dashboard" />
+          <div className="pixel-wheel" />
+          <div className="pixel-car traffic-one" />
+          <div className="pixel-car traffic-two" />
+          <div className="pixel-car traffic-three" />
+        </>
+      ) : null}
+
+      {scene === "alien" ? (
+        <>
+          <div className="pixel-stars" />
+          <div className="pixel-ship player-ship" />
+          <div className="pixel-ship alien-ship alien-one" />
+          <div className="pixel-ship alien-ship alien-two" />
+          <div className="pixel-ship alien-ship alien-three" />
+          <div className="pixel-laser laser-one" />
+          <div className="pixel-laser laser-two" />
+          <div className="pixel-blast" />
+        </>
+      ) : null}
+
+      {scene === "menu" ? (
+        <>
+          <div className="pixel-menu-cloud cloud-a" />
+          <div className="pixel-menu-cloud cloud-b" />
+          <div className="pixel-floating-island" />
+          <div className="pixel-title-card">PRESS PLAY</div>
+          <div className="pixel-star star-a" />
+          <div className="pixel-star star-b" />
+          <div className="pixel-star star-c" />
+        </>
+      ) : null}
+    </div>
+  );
+}
+
 export function AudioLibrary({ tracks }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
@@ -118,27 +207,30 @@ export function AudioLibrary({ tracks }: Props) {
             ) : null}
 
             {activeTrack ? (
-              <div className="top-scrubber">
-                <div className="top-scrubber-meta">
-                  <span className="truncate">{activeTrack.title}</span>
-                  <span className="track-time">
-                    {duration > 0 ? `-${formatTime(Math.max(duration - progress, 0))}` : ""}
-                  </span>
+              <>
+                <PixelLoop track={activeTrack} />
+                <div className="top-scrubber">
+                  <div className="top-scrubber-meta">
+                    <span className="truncate">{activeTrack.title}</span>
+                    <span className="track-time">
+                      {duration > 0 ? `-${formatTime(Math.max(duration - progress, 0))}` : ""}
+                    </span>
+                  </div>
+                  <input
+                    aria-label={`Scrub ${activeTrack.title}`}
+                    className="scrub-range"
+                    disabled={duration <= 0}
+                    max={duration || 0}
+                    min={0}
+                    onChange={(event) => scrubTo(Number(event.currentTarget.value))}
+                    onInput={(event) => scrubTo(Number(event.currentTarget.value))}
+                    step="0.01"
+                    style={{ "--scrub-percent": `${duration > 0 ? (progress / duration) * 100 : 0}%` } as CSSProperties}
+                    type="range"
+                    value={progress}
+                  />
                 </div>
-                <input
-                  aria-label={`Scrub ${activeTrack.title}`}
-                  className="scrub-range"
-                  disabled={duration <= 0}
-                  max={duration || 0}
-                  min={0}
-                  onChange={(event) => scrubTo(Number(event.currentTarget.value))}
-                  onInput={(event) => scrubTo(Number(event.currentTarget.value))}
-                  step="0.01"
-                  style={{ "--scrub-percent": `${duration > 0 ? (progress / duration) * 100 : 0}%` } as CSSProperties}
-                  type="range"
-                  value={progress}
-                />
-              </div>
+              </>
             ) : null}
 
             <div className="track-list">

@@ -126,7 +126,7 @@ nextjs-portal {
 .top-scrubber {
   width: 100%;
   max-width: 672px;
-  margin: 0 auto 20px;
+  margin: 16px auto 20px;
   padding: 0 4px;
 }
 
@@ -229,6 +229,437 @@ nextjs-portal {
   width: 176px;
   height: 176px;
   background: rgba(182, 255, 0, 0.2);
+}
+
+.pixel-player {
+  position: relative;
+  width: 100%;
+  max-width: 672px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 2px solid #111111;
+  border-radius: 14px;
+  background: #c7f4ff;
+  image-rendering: pixelated;
+}
+
+.pixel-player * {
+  position: absolute;
+  image-rendering: pixelated;
+}
+
+.pixel-sky {
+  inset: 0;
+  background: linear-gradient(#9fe9ff 0 58%, #9ee47d 58% 100%);
+}
+
+.pixel-cloud,
+.pixel-menu-cloud {
+  width: 64px;
+  height: 20px;
+  background: #ffffff;
+  box-shadow: 18px -8px 0 #ffffff, 36px 0 0 #ffffff, 8px 10px 0 #ffffff;
+  animation: drift 9s linear infinite;
+}
+
+.pixel-cloud-one { top: 28px; left: -90px; }
+.pixel-cloud-two { top: 58px; left: -170px; animation-duration: 13s; }
+
+.pixel-hills {
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  height: 72px;
+  background: linear-gradient(135deg, transparent 22%, #66c86a 22% 44%, transparent 44%),
+    linear-gradient(45deg, transparent 34%, #58b55d 34% 58%, transparent 58%);
+  background-size: 170px 72px, 220px 72px;
+}
+
+.pixel-path {
+  left: -20%;
+  right: -20%;
+  bottom: 0;
+  height: 54px;
+  background: repeating-linear-gradient(90deg, #b58555 0 28px, #9e7148 28px 32px);
+  animation: ground-scroll 1.1s linear infinite;
+}
+
+.pixel-tree {
+  bottom: 48px;
+  width: 18px;
+  height: 52px;
+  background: #7b4a28;
+  box-shadow: -18px -24px 0 4px #2fb85d, 0 -38px 0 8px #38c96a, 20px -25px 0 5px #229f50;
+  animation: scenery-pass 5.6s linear infinite;
+}
+
+.tree-one { left: 70%; }
+.tree-two { left: 112%; animation-delay: -2.6s; }
+
+.pixel-character {
+  left: 30%;
+  bottom: 54px;
+  width: 20px;
+  height: 30px;
+  background: #ffcf7d;
+  box-shadow: 0 -12px 0 #7b4dff, 0 12px 0 #2a2a2a, -6px 10px 0 #2a2a2a, 8px 10px 0 #2a2a2a;
+}
+
+.walker {
+  animation: bob 0.45s steps(2) infinite;
+}
+
+.pixel-slime {
+  bottom: 44px;
+  width: 28px;
+  height: 18px;
+  border-radius: 9px 9px 4px 4px;
+  background: #66f08a;
+  box-shadow: 7px 5px 0 #38c96a, 8px -4px 0 #b7ffd0;
+  animation: slime-pass 3.8s linear infinite;
+}
+
+.slime-one { left: 110%; }
+.slime-two { left: 135%; animation-delay: -1.8s; }
+
+.pixel-scene-underwater {
+  background: linear-gradient(#1db7d8, #055aa4);
+}
+
+.pixel-water-rays {
+  inset: -20% 0 0;
+  background: repeating-linear-gradient(105deg, rgba(255,255,255,.22) 0 12px, transparent 12px 52px);
+  animation: rays 5s ease-in-out infinite alternate;
+}
+
+.pixel-bubbles {
+  bottom: -30px;
+  width: 12px;
+  height: 12px;
+  border: 3px solid rgba(255,255,255,.8);
+  border-radius: 999px;
+  animation: bubble-rise 4s linear infinite;
+}
+
+.bubble-one { left: 18%; }
+.bubble-two { left: 68%; animation-delay: -1.5s; }
+.bubble-three { left: 43%; animation-delay: -2.7s; }
+
+.pixel-seafloor {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 44px;
+  background: repeating-linear-gradient(90deg, #d4b46d 0 26px, #c69c55 26px 52px);
+}
+
+.pixel-coral {
+  bottom: 36px;
+  width: 12px;
+  height: 42px;
+  background: #ff5aa7;
+  box-shadow: -10px 12px 0 #ff5aa7, 13px 18px 0 #ff8a37;
+}
+
+.coral-one { left: 12%; }
+.coral-two { right: 16%; transform: scaleX(-1); }
+
+.pixel-diver {
+  left: 13%;
+  top: 43%;
+  width: 42px;
+  height: 18px;
+  background: #ffe26b;
+  box-shadow: 34px 0 0 #222, 47px 5px 0 #70f4ff, -14px 3px 0 #222;
+  animation: swim 2.8s ease-in-out infinite;
+}
+
+.pixel-mermaid {
+  width: 28px;
+  height: 38px;
+  background: #ffd08a;
+  box-shadow: 0 18px 0 #42f5b9, 16px 28px 0 #2bdba1, -8px -8px 0 #ab5cff;
+  animation: dance 0.9s steps(2) infinite;
+}
+
+.mermaid-one { left: 56%; top: 40%; }
+.mermaid-two { left: 76%; top: 49%; animation-delay: -0.3s; }
+
+.pixel-maraca {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ffdd35;
+  box-shadow: 0 9px 0 #7b4a28;
+  animation: shake 0.35s steps(2) infinite;
+}
+
+.maraca-one { left: 52%; top: 38%; }
+.maraca-two { left: 72%; top: 47%; animation-delay: -0.18s; }
+
+.pixel-scene-drive {
+  background: linear-gradient(#151933 0 50%, #242642 50% 100%);
+}
+
+.pixel-city {
+  left: 0;
+  right: 0;
+  top: 22px;
+  height: 92px;
+  background: repeating-linear-gradient(90deg, #24284f 0 28px, #34396d 28px 52px, #1c2040 52px 84px);
+}
+
+.pixel-city::after {
+  content: "";
+  position: absolute;
+  inset: 12px 0 0;
+  background: repeating-linear-gradient(90deg, #ffe45e 0 6px, transparent 6px 18px);
+}
+
+.pixel-road {
+  left: 12%;
+  right: 12%;
+  bottom: 0;
+  height: 62%;
+  clip-path: polygon(36% 0, 64% 0, 100% 100%, 0 100%);
+  background: #1a1a24;
+}
+
+.pixel-lane {
+  left: 50%;
+  width: 8px;
+  height: 34px;
+  background: #fff2a0;
+  animation: lane-rush 0.75s linear infinite;
+}
+
+.lane-one { bottom: 44%; }
+.lane-two { bottom: 18%; animation-delay: -0.36s; }
+
+.pixel-dashboard {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 28%;
+  background: #0b0c12;
+}
+
+.pixel-wheel {
+  left: 43%;
+  bottom: 5%;
+  width: 90px;
+  height: 42px;
+  border: 10px solid #2d2f3c;
+  border-bottom: 0;
+  border-radius: 90px 90px 0 0;
+  animation: steer 1.4s ease-in-out infinite;
+}
+
+.pixel-car {
+  width: 36px;
+  height: 20px;
+  background: #ff3f7f;
+  box-shadow: 5px -8px 0 #78f7ff, 5px 20px 0 #111, 24px 20px 0 #111;
+  animation: traffic 2.2s linear infinite;
+}
+
+.traffic-one { left: 44%; top: 45%; }
+.traffic-two { left: 58%; top: 34%; animation-delay: -0.8s; background: #55ff8f; }
+.traffic-three { left: 35%; top: 28%; animation-delay: -1.4s; background: #ffdd35; }
+
+.pixel-scene-alien {
+  background: #07071e;
+}
+
+.pixel-stars {
+  inset: 0;
+  background-image: radial-gradient(#fff 1px, transparent 1px), radial-gradient(#75f7ff 1px, transparent 1px);
+  background-size: 26px 26px, 43px 43px;
+  animation: star-scroll 2.5s linear infinite;
+}
+
+.pixel-ship {
+  width: 34px;
+  height: 22px;
+  clip-path: polygon(50% 0, 100% 75%, 68% 75%, 68% 100%, 32% 100%, 32% 75%, 0 75%);
+}
+
+.player-ship {
+  left: 47%;
+  bottom: 24px;
+  background: #6dff8f;
+  animation: ship-dodge 1.2s ease-in-out infinite;
+}
+
+.alien-ship {
+  top: 38px;
+  background: #ff4bd8;
+  transform: rotate(180deg);
+  animation: alien-sway 1.8s ease-in-out infinite;
+}
+
+.alien-one { left: 28%; }
+.alien-two { left: 48%; animation-delay: -0.6s; }
+.alien-three { left: 68%; animation-delay: -1.2s; }
+
+.pixel-laser {
+  width: 4px;
+  height: 40px;
+  background: #b6ff00;
+  animation: laser-fire 0.8s linear infinite;
+}
+
+.laser-one { left: 51%; bottom: 58px; }
+.laser-two { left: 34%; top: 74px; background: #ff2bd6; animation-delay: -0.35s; }
+
+.pixel-blast {
+  left: 62%;
+  top: 42%;
+  width: 18px;
+  height: 18px;
+  background: #fff36a;
+  box-shadow: 0 0 0 8px rgba(255,43,214,.45);
+  animation: blink 0.5s steps(2) infinite;
+}
+
+.pixel-scene-menu {
+  background: linear-gradient(#90e8ff 0 68%, #fff4c4 68% 100%);
+}
+
+.pixel-menu-cloud {
+  top: 32%;
+}
+
+.cloud-a { left: 10%; animation-duration: 8s; }
+.cloud-b { left: 68%; top: 20%; animation-duration: 11s; }
+
+.pixel-floating-island {
+  left: 35%;
+  bottom: 24%;
+  width: 160px;
+  height: 42px;
+  background: #6ad66f;
+  clip-path: polygon(0 0, 100% 0, 78% 100%, 22% 100%);
+  box-shadow: 0 18px 0 #9c7442;
+  animation: floaty 2.6s ease-in-out infinite;
+}
+
+.pixel-title-card {
+  left: 50%;
+  top: 28%;
+  transform: translateX(-50%);
+  padding: 12px 18px;
+  border: 4px solid #111;
+  background: #fff8d9;
+  color: #111;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  box-shadow: 6px 6px 0 #ff2bd6;
+  animation: blink 1s steps(2) infinite;
+}
+
+.pixel-star {
+  width: 10px;
+  height: 10px;
+  background: #fff36a;
+  box-shadow: 0 0 0 4px rgba(255,255,255,.45);
+  animation: twinkle 1s steps(2) infinite;
+}
+
+.star-a { left: 18%; top: 18%; }
+.star-b { right: 18%; top: 34%; animation-delay: -0.35s; }
+.star-c { left: 55%; top: 13%; animation-delay: -0.7s; }
+
+@keyframes drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(820px); }
+}
+
+@keyframes ground-scroll {
+  to { transform: translateX(32px); }
+}
+
+@keyframes scenery-pass {
+  from { transform: translateX(0); }
+  to { transform: translateX(-850px); }
+}
+
+@keyframes slime-pass {
+  from { transform: translateX(0) scaleY(1); }
+  50% { transform: translateX(-390px) scaleY(.75); }
+  to { transform: translateX(-780px) scaleY(1); }
+}
+
+@keyframes bob {
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes rays {
+  to { transform: translateX(-32px); opacity: .65; }
+}
+
+@keyframes bubble-rise {
+  from { transform: translateY(0); opacity: 0; }
+  15% { opacity: 1; }
+  to { transform: translateY(-250px); opacity: 0; }
+}
+
+@keyframes swim {
+  50% { transform: translate(18px, -10px); }
+}
+
+@keyframes dance {
+  50% { transform: translateY(-8px) rotate(4deg); }
+}
+
+@keyframes shake {
+  50% { transform: rotate(18deg); }
+}
+
+@keyframes lane-rush {
+  from { transform: translate(-50%, -90px) scale(.4); }
+  to { transform: translate(-50%, 180px) scale(2.6); }
+}
+
+@keyframes steer {
+  50% { transform: rotate(-6deg); }
+}
+
+@keyframes traffic {
+  from { transform: translateY(-40px) scale(.45); opacity: .65; }
+  to { transform: translateY(260px) scale(2.5); opacity: 1; }
+}
+
+@keyframes star-scroll {
+  to { background-position: 0 26px, 0 43px; }
+}
+
+@keyframes ship-dodge {
+  50% { transform: translateX(24px); }
+}
+
+@keyframes alien-sway {
+  50% { transform: rotate(180deg) translateX(18px); }
+}
+
+@keyframes laser-fire {
+  from { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  to { transform: translateY(-170px); opacity: 0; }
+}
+
+@keyframes blink {
+  50% { opacity: .45; }
+}
+
+@keyframes floaty {
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes twinkle {
+  50% { transform: scale(1.5); opacity: .55; }
 }
 
 @media (min-width: 640px) {
