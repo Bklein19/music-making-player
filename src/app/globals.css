@@ -250,6 +250,78 @@ nextjs-portal {
   image-rendering: pixelated;
 }
 
+.pixel-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  shape-rendering: crispEdges;
+}
+
+.pixel-canvas * {
+  position: static;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.pixel-walk-cycle {
+  animation: sprite-walk 0.9s steps(2) infinite;
+}
+
+.pixel-slime-svg {
+  animation: svg-slime-pass 4.2s linear infinite;
+}
+
+.pixel-rays {
+  animation: svg-rays 4s ease-in-out infinite alternate;
+}
+
+.pixel-float {
+  animation: svg-float 2.8s ease-in-out infinite;
+}
+
+.pixel-dance {
+  animation: svg-dance 0.8s steps(2) infinite;
+}
+
+.pixel-shake {
+  animation: svg-shake 0.35s steps(2) infinite;
+}
+
+.pixel-road-lines {
+  animation: svg-road 0.65s linear infinite;
+}
+
+.pixel-traffic-svg {
+  animation: svg-traffic 2.4s linear infinite;
+}
+
+.traffic-delay {
+  animation-delay: -1.1s;
+}
+
+.pixel-duel-left {
+  animation: svg-duel-left 1.5s ease-in-out infinite;
+}
+
+.pixel-duel-right {
+  animation: svg-duel-right 1.5s ease-in-out infinite;
+}
+
+.pixel-duel-lasers,
+.pixel-blink {
+  animation: svg-blink 0.65s steps(2) infinite;
+}
+
+.pixel-cloud-svg {
+  animation: svg-cloud 8s linear infinite;
+}
+
+.cloud-delay {
+  animation-delay: -4s;
+}
+
 .pixel-sky {
   inset: 0;
   background: linear-gradient(#9fe9ff 0 58%, #9ee47d 58% 100%);
@@ -764,6 +836,59 @@ nextjs-portal {
 
 @keyframes twinkle {
   50% { transform: scale(1.5); opacity: .55; }
+}
+
+@keyframes sprite-walk {
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes svg-slime-pass {
+  from { transform: translateX(110px) scaleY(1); }
+  50% { transform: translateX(-120px) scaleY(.75); }
+  to { transform: translateX(-300px) scaleY(1); }
+}
+
+@keyframes svg-rays {
+  to { transform: translateX(-16px); opacity: .75; }
+}
+
+@keyframes svg-float {
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes svg-dance {
+  50% { transform: translateY(-6px) rotate(3deg); }
+}
+
+@keyframes svg-shake {
+  50% { transform: rotate(8deg); }
+}
+
+@keyframes svg-road {
+  from { transform: translateY(-22px) scale(.6); }
+  to { transform: translateY(52px) scale(1.8); }
+}
+
+@keyframes svg-traffic {
+  from { transform: translateY(-28px) scale(.55); opacity: .65; }
+  to { transform: translateY(112px) scale(2.2); opacity: 1; }
+}
+
+@keyframes svg-duel-left {
+  50% { transform: translate(8px, -6px); }
+}
+
+@keyframes svg-duel-right {
+  50% { transform: translate(-8px, 6px); }
+}
+
+@keyframes svg-blink {
+  50% { opacity: .2; }
+}
+
+@keyframes svg-cloud {
+  from { transform: translateX(-80px); }
+  to { transform: translateX(120px); }
 }
 
 @media (min-width: 640px) {
