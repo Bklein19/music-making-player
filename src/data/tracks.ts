@@ -8,9 +8,9 @@ export type Track = {
 
 export const tracks: Track[] = [
   {
-    "title": "Alien Standoff Type Beat",
-    "file": "alien_standoff_type_beat.wav",
-    "src": "/audio/alien_standoff_type_beat.wav",
+    "title": "Alien Cowboy Type Beat",
+    "file": "alien_cowboy_type_beat.wav",
+    "src": "/audio/alien_cowboy_type_beat.wav",
     "size": 16329310,
     "updatedAt": "2026-07-02T20:04:09.352Z"
   },
