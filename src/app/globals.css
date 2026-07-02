@@ -51,7 +51,7 @@ nextjs-portal {
   display: flex;
   min-height: 100vh;
   width: 100%;
-  max-width: 900px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 40px 20px;
   align-items: center;
@@ -60,7 +60,7 @@ nextjs-portal {
 
 .track-list {
   width: 100%;
-  max-width: 760px;
+  max-width: 960px;
   max-height: 62vh;
   margin: 0 auto;
   padding: 8px 4px;
@@ -125,7 +125,7 @@ nextjs-portal {
 
 .top-scrubber {
   width: 100%;
-  max-width: 760px;
+  max-width: 960px;
   margin: 16px auto 20px;
   padding: 0 4px;
 }
@@ -234,7 +234,7 @@ nextjs-portal {
 .pixel-player {
   position: relative;
   width: 100%;
-  max-width: 760px;
+  max-width: 960px;
   aspect-ratio: 16 / 9;
   margin: 0 auto;
   overflow: hidden;
@@ -242,33 +242,12 @@ nextjs-portal {
   border-radius: 8px;
   background: #c7f4ff;
   image-rendering: pixelated;
-  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.28);
+  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.22);
 }
 
 .pixel-player * {
   position: absolute;
   image-rendering: pixelated;
-}
-
-.pixel-player::before,
-.pixel-player::after {
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  z-index: 20;
-}
-
-.pixel-player::before {
-  background:
-    repeating-linear-gradient(90deg, rgba(17,17,17,.08) 0 1px, transparent 1px 8px),
-    repeating-linear-gradient(0deg, rgba(17,17,17,.07) 0 1px, transparent 1px 8px);
-  mix-blend-mode: multiply;
-}
-
-.pixel-player::after {
-  background: repeating-linear-gradient(0deg, rgba(255,255,255,.14) 0 2px, transparent 2px 4px);
-  opacity: .5;
 }
 
 .pixel-sky {
@@ -313,7 +292,7 @@ nextjs-portal {
 }
 
 .pixel-tree {
-  bottom: 48px;
+  bottom: 74px;
   width: 16px;
   height: 56px;
   background: #7b4a28;
@@ -326,15 +305,15 @@ nextjs-portal {
     0 -24px 0 0 #45df76,
     16px -16px 0 0 #2fb85d,
     0 16px 0 #5d341f;
-  animation: scenery-pass 5.6s linear infinite;
+  z-index: 1;
 }
 
-.tree-one { left: 70%; }
-.tree-two { left: 112%; animation-delay: -2.6s; }
+.tree-one { left: 8%; transform: scale(.9); }
+.tree-two { right: 9%; transform: scale(.82); }
 
 .pixel-character {
-  left: 30%;
-  bottom: 54px;
+  left: 24%;
+  bottom: 62px;
   width: 8px;
   height: 8px;
   background: #2b1d12;
@@ -346,14 +325,20 @@ nextjs-portal {
     0 16px 0 #7b4dff,
     8px 16px 0 #7b4dff,
     16px 16px 0 #7b4dff,
-    0 24px 0 #2a2a2a,
-    16px 24px 0 #2a2a2a,
+    0 24px 0 #5133d5,
+    8px 24px 0 #5133d5,
+    16px 24px 0 #5133d5,
+    0 32px 0 #2a2a2a,
+    16px 32px 0 #2a2a2a,
     -8px 16px 0 #ffcf7d,
-    24px 16px 0 #ffcf7d;
+    24px 16px 0 #ffcf7d,
+    -8px 24px 0 #5b3eff,
+    24px 24px 0 #5b3eff;
+  z-index: 8;
 }
 
 .walker {
-  animation: bob 0.45s steps(2) infinite;
+  animation: bob 0.85s steps(2) infinite;
 }
 
 .pixel-slime {
@@ -370,6 +355,7 @@ nextjs-portal {
     8px 0 0 #111,
     24px 0 0 #111;
   animation: slime-pass 3.8s linear infinite;
+  z-index: 5;
 }
 
 .slime-one { left: 110%; }
@@ -418,19 +404,22 @@ nextjs-portal {
 .coral-two { right: 16%; transform: scaleX(-1); }
 
 .pixel-diver {
-  left: 13%;
-  top: 43%;
-  width: 48px;
-  height: 16px;
+  left: 18%;
+  top: 33%;
+  width: 18px;
+  height: 50px;
   background: #ffe26b;
   box-shadow:
-    48px 0 0 #222,
-    60px 0 0 #70f4ff,
-    64px 4px 0 #70f4ff,
-    -16px 4px 0 #222,
-    8px 16px 0 #15406d,
-    28px 16px 0 #15406d;
-  animation: swim 2.8s ease-in-out infinite;
+    0 -18px 0 #70f4ff,
+    0 -26px 0 #222,
+    -8px 8px 0 #222,
+    18px 8px 0 #222,
+    -8px 34px 0 #15406d,
+    18px 34px 0 #15406d,
+    -8px 50px 0 #15406d,
+    18px 50px 0 #15406d,
+    0 50px 0 #113251;
+  animation: diver-float 2.8s ease-in-out infinite;
 }
 
 .pixel-mermaid {
@@ -551,64 +540,63 @@ nextjs-portal {
 }
 
 .pixel-ship {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   clip-path: none;
 }
 
-.player-ship {
-  left: 47%;
-  bottom: 24px;
+.duel-ship-left {
+  left: 21%;
+  top: 43%;
   background: #6dff8f;
   box-shadow:
-    -16px 16px 0 #6dff8f,
-    16px 16px 0 #6dff8f,
-    0 16px 0 #b6ff00,
-    0 32px 0 #111,
-    -24px 24px 0 #00e5ff,
-    24px 24px 0 #00e5ff;
-  animation: ship-dodge 1.2s ease-in-out infinite;
+    -24px 24px 0 #6dff8f,
+    24px 24px 0 #6dff8f,
+    0 24px 0 #b6ff00,
+    -48px 24px 0 #00e5ff,
+    48px 24px 0 #00e5ff,
+    -24px 48px 0 #152013,
+    24px 48px 0 #152013;
+  animation: duel-hover-left 1.5s ease-in-out infinite;
 }
 
-.alien-ship {
-  top: 38px;
+.duel-ship-right {
+  right: 21%;
+  top: 43%;
   background: #ff4bd8;
   box-shadow:
-    -16px 0 0 #ff4bd8,
-    16px 0 0 #ff4bd8,
-    -8px 16px 0 #b6ff00,
-    8px 16px 0 #b6ff00,
-    -24px 8px 0 #7b4dff,
-    24px 8px 0 #7b4dff;
-  animation: alien-sway 1.8s ease-in-out infinite;
+    -24px 24px 0 #ff4bd8,
+    24px 24px 0 #ff4bd8,
+    0 24px 0 #ff9bec,
+    -48px 24px 0 #7b4dff,
+    48px 24px 0 #7b4dff,
+    -24px 48px 0 #25113b,
+    24px 48px 0 #25113b;
+  animation: duel-hover-right 1.5s ease-in-out infinite;
 }
-
-.alien-one { left: 28%; }
-.alien-two { left: 48%; animation-delay: -0.6s; }
-.alien-three { left: 68%; animation-delay: -1.2s; }
 
 .pixel-laser {
-  width: 4px;
-  height: 40px;
+  width: 72px;
+  height: 6px;
   background: #b6ff00;
-  animation: laser-fire 0.8s linear infinite;
+  animation: duel-laser 0.9s steps(2) infinite;
 }
 
-.laser-one { left: 51%; bottom: 58px; }
-.laser-two { left: 34%; top: 74px; background: #ff2bd6; animation-delay: -0.35s; }
+.duel-laser-left { left: 33%; top: 53%; }
+.duel-laser-right { right: 33%; top: 48%; background: #ff2bd6; animation-delay: -0.45s; }
 
 .pixel-blast {
-  left: 62%;
-  top: 42%;
-  width: 16px;
-  height: 16px;
+  left: 49%;
+  top: 50%;
+  width: 18px;
+  height: 18px;
   background: #fff36a;
   box-shadow:
     -16px 0 0 #ff2bd6,
     16px 0 0 #ff2bd6,
     0 -16px 0 #00e5ff,
     0 16px 0 #00e5ff;
-  animation: blink 0.5s steps(2) infinite;
+  animation: blink 0.55s steps(2) infinite;
 }
 
 .pixel-scene-menu {
@@ -708,6 +696,10 @@ nextjs-portal {
   50% { transform: translate(18px, -10px); }
 }
 
+@keyframes diver-float {
+  50% { transform: translate(10px, -12px); }
+}
+
 @keyframes dance {
   50% { transform: translateY(-8px) rotate(4deg); }
 }
@@ -746,6 +738,20 @@ nextjs-portal {
   from { transform: translateY(0); opacity: 0; }
   20% { opacity: 1; }
   to { transform: translateY(-170px); opacity: 0; }
+}
+
+@keyframes duel-hover-left {
+  50% { transform: translate(14px, -8px); }
+}
+
+@keyframes duel-hover-right {
+  50% { transform: translate(-14px, 8px); }
+}
+
+@keyframes duel-laser {
+  0% { opacity: 0; transform: scaleX(.25); }
+  50% { opacity: 1; transform: scaleX(1); }
+  100% { opacity: 0; transform: scaleX(.25); }
 }
 
 @keyframes blink {

@@ -72,12 +72,10 @@ function PixelLoop({ track }: { track: Track }) {
       {scene === "alien" ? (
         <>
           <div className="pixel-stars" />
-          <div className="pixel-ship player-ship" />
-          <div className="pixel-ship alien-ship alien-one" />
-          <div className="pixel-ship alien-ship alien-two" />
-          <div className="pixel-ship alien-ship alien-three" />
-          <div className="pixel-laser laser-one" />
-          <div className="pixel-laser laser-two" />
+          <div className="pixel-ship duel-ship-left" />
+          <div className="pixel-ship duel-ship-right" />
+          <div className="pixel-laser duel-laser-left" />
+          <div className="pixel-laser duel-laser-right" />
           <div className="pixel-blast" />
         </>
       ) : null}
