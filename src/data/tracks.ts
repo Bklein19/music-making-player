@@ -8,6 +8,13 @@ export type Track = {
 
 export const tracks: Track[] = [
   {
+    "title": "Alien Western Duel Type Beat",
+    "file": "alien_western_duel_type_beat.wav",
+    "src": "/audio/alien_western_duel_type_beat.wav",
+    "size": 16329310,
+    "updatedAt": "2026-07-02T20:04:09.352Z"
+  },
+  {
     "title": "Start Your Engines Type Beat",
     "file": "start_your_engines_type_beat.wav",
     "src": "/audio/start_your_engines_type_beat.wav",
