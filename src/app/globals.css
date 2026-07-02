@@ -51,7 +51,7 @@ nextjs-portal {
   display: flex;
   min-height: 100vh;
   width: 100%;
-  max-width: 768px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
   align-items: center;
@@ -60,7 +60,7 @@ nextjs-portal {
 
 .track-list {
   width: 100%;
-  max-width: 672px;
+  max-width: 760px;
   max-height: 62vh;
   margin: 0 auto;
   padding: 8px 4px;
@@ -125,7 +125,7 @@ nextjs-portal {
 
 .top-scrubber {
   width: 100%;
-  max-width: 672px;
+  max-width: 760px;
   margin: 16px auto 20px;
   padding: 0 4px;
 }
@@ -234,19 +234,41 @@ nextjs-portal {
 .pixel-player {
   position: relative;
   width: 100%;
-  max-width: 672px;
+  max-width: 760px;
   aspect-ratio: 16 / 9;
   margin: 0 auto;
   overflow: hidden;
-  border: 2px solid #111111;
-  border-radius: 14px;
+  border: 4px solid #111111;
+  border-radius: 8px;
   background: #c7f4ff;
   image-rendering: pixelated;
+  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.28);
 }
 
 .pixel-player * {
   position: absolute;
   image-rendering: pixelated;
+}
+
+.pixel-player::before,
+.pixel-player::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+}
+
+.pixel-player::before {
+  background:
+    repeating-linear-gradient(90deg, rgba(17,17,17,.08) 0 1px, transparent 1px 8px),
+    repeating-linear-gradient(0deg, rgba(17,17,17,.07) 0 1px, transparent 1px 8px);
+  mix-blend-mode: multiply;
+}
+
+.pixel-player::after {
+  background: repeating-linear-gradient(0deg, rgba(255,255,255,.14) 0 2px, transparent 2px 4px);
+  opacity: .5;
 }
 
 .pixel-sky {
@@ -256,10 +278,15 @@ nextjs-portal {
 
 .pixel-cloud,
 .pixel-menu-cloud {
-  width: 64px;
-  height: 20px;
+  width: 72px;
+  height: 24px;
   background: #ffffff;
-  box-shadow: 18px -8px 0 #ffffff, 36px 0 0 #ffffff, 8px 10px 0 #ffffff;
+  box-shadow:
+    16px -8px 0 #ffffff,
+    32px -16px 0 #ffffff,
+    48px -8px 0 #ffffff,
+    8px 8px 0 #d8fbff,
+    40px 8px 0 #d8fbff;
   animation: drift 9s linear infinite;
 }
 
@@ -287,10 +314,18 @@ nextjs-portal {
 
 .pixel-tree {
   bottom: 48px;
-  width: 18px;
-  height: 52px;
+  width: 16px;
+  height: 56px;
   background: #7b4a28;
-  box-shadow: -18px -24px 0 4px #2fb85d, 0 -38px 0 8px #38c96a, 20px -25px 0 5px #229f50;
+  box-shadow:
+    -24px -24px 0 0 #229f50,
+    -8px -40px 0 0 #38c96a,
+    8px -40px 0 0 #38c96a,
+    24px -24px 0 0 #229f50,
+    -16px -16px 0 0 #2fb85d,
+    0 -24px 0 0 #45df76,
+    16px -16px 0 0 #2fb85d,
+    0 16px 0 #5d341f;
   animation: scenery-pass 5.6s linear infinite;
 }
 
@@ -300,10 +335,21 @@ nextjs-portal {
 .pixel-character {
   left: 30%;
   bottom: 54px;
-  width: 20px;
-  height: 30px;
-  background: #ffcf7d;
-  box-shadow: 0 -12px 0 #7b4dff, 0 12px 0 #2a2a2a, -6px 10px 0 #2a2a2a, 8px 10px 0 #2a2a2a;
+  width: 8px;
+  height: 8px;
+  background: #2b1d12;
+  box-shadow:
+    8px 0 0 #2b1d12,
+    0 8px 0 #ffcf7d,
+    8px 8px 0 #ffcf7d,
+    16px 8px 0 #ffcf7d,
+    0 16px 0 #7b4dff,
+    8px 16px 0 #7b4dff,
+    16px 16px 0 #7b4dff,
+    0 24px 0 #2a2a2a,
+    16px 24px 0 #2a2a2a,
+    -8px 16px 0 #ffcf7d,
+    24px 16px 0 #ffcf7d;
 }
 
 .walker {
@@ -312,11 +358,17 @@ nextjs-portal {
 
 .pixel-slime {
   bottom: 44px;
-  width: 28px;
-  height: 18px;
-  border-radius: 9px 9px 4px 4px;
+  width: 32px;
+  height: 16px;
+  border-radius: 0;
   background: #66f08a;
-  box-shadow: 7px 5px 0 #38c96a, 8px -4px 0 #b7ffd0;
+  box-shadow:
+    8px -8px 0 #92ffae,
+    16px -8px 0 #66f08a,
+    8px 8px 0 #38c96a,
+    24px 8px 0 #38c96a,
+    8px 0 0 #111,
+    24px 0 0 #111;
   animation: slime-pass 3.8s linear infinite;
 }
 
@@ -335,10 +387,10 @@ nextjs-portal {
 
 .pixel-bubbles {
   bottom: -30px;
-  width: 12px;
-  height: 12px;
-  border: 3px solid rgba(255,255,255,.8);
-  border-radius: 999px;
+  width: 16px;
+  height: 16px;
+  border: 4px solid rgba(255,255,255,.8);
+  border-radius: 0;
   animation: bubble-rise 4s linear infinite;
 }
 
@@ -368,18 +420,32 @@ nextjs-portal {
 .pixel-diver {
   left: 13%;
   top: 43%;
-  width: 42px;
-  height: 18px;
+  width: 48px;
+  height: 16px;
   background: #ffe26b;
-  box-shadow: 34px 0 0 #222, 47px 5px 0 #70f4ff, -14px 3px 0 #222;
+  box-shadow:
+    48px 0 0 #222,
+    60px 0 0 #70f4ff,
+    64px 4px 0 #70f4ff,
+    -16px 4px 0 #222,
+    8px 16px 0 #15406d,
+    28px 16px 0 #15406d;
   animation: swim 2.8s ease-in-out infinite;
 }
 
 .pixel-mermaid {
-  width: 28px;
-  height: 38px;
+  width: 16px;
+  height: 16px;
   background: #ffd08a;
-  box-shadow: 0 18px 0 #42f5b9, 16px 28px 0 #2bdba1, -8px -8px 0 #ab5cff;
+  box-shadow:
+    0 -12px 0 #ab5cff,
+    16px 0 0 #ffd08a,
+    0 16px 0 #42f5b9,
+    16px 16px 0 #42f5b9,
+    24px 28px 0 #2bdba1,
+    8px 28px 0 #2bdba1,
+    -8px 4px 0 #ffd08a,
+    28px 4px 0 #ffd08a;
   animation: dance 0.9s steps(2) infinite;
 }
 
@@ -387,9 +453,9 @@ nextjs-portal {
 .mermaid-two { left: 76%; top: 49%; animation-delay: -0.3s; }
 
 .pixel-maraca {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
+  width: 12px;
+  height: 12px;
+  border-radius: 0;
   background: #ffdd35;
   box-shadow: 0 9px 0 #7b4a28;
   animation: shake 0.35s steps(2) infinite;
@@ -452,15 +518,20 @@ nextjs-portal {
   height: 42px;
   border: 10px solid #2d2f3c;
   border-bottom: 0;
-  border-radius: 90px 90px 0 0;
+  border-radius: 0;
   animation: steer 1.4s ease-in-out infinite;
 }
 
 .pixel-car {
-  width: 36px;
+  width: 40px;
   height: 20px;
   background: #ff3f7f;
-  box-shadow: 5px -8px 0 #78f7ff, 5px 20px 0 #111, 24px 20px 0 #111;
+  box-shadow:
+    8px -8px 0 #78f7ff,
+    24px -8px 0 #78f7ff,
+    0 20px 0 #111,
+    28px 20px 0 #111,
+    8px 8px 0 rgba(255,255,255,.35);
   animation: traffic 2.2s linear infinite;
 }
 
@@ -480,22 +551,35 @@ nextjs-portal {
 }
 
 .pixel-ship {
-  width: 34px;
-  height: 22px;
-  clip-path: polygon(50% 0, 100% 75%, 68% 75%, 68% 100%, 32% 100%, 32% 75%, 0 75%);
+  width: 16px;
+  height: 16px;
+  clip-path: none;
 }
 
 .player-ship {
   left: 47%;
   bottom: 24px;
   background: #6dff8f;
+  box-shadow:
+    -16px 16px 0 #6dff8f,
+    16px 16px 0 #6dff8f,
+    0 16px 0 #b6ff00,
+    0 32px 0 #111,
+    -24px 24px 0 #00e5ff,
+    24px 24px 0 #00e5ff;
   animation: ship-dodge 1.2s ease-in-out infinite;
 }
 
 .alien-ship {
   top: 38px;
   background: #ff4bd8;
-  transform: rotate(180deg);
+  box-shadow:
+    -16px 0 0 #ff4bd8,
+    16px 0 0 #ff4bd8,
+    -8px 16px 0 #b6ff00,
+    8px 16px 0 #b6ff00,
+    -24px 8px 0 #7b4dff,
+    24px 8px 0 #7b4dff;
   animation: alien-sway 1.8s ease-in-out infinite;
 }
 
@@ -516,10 +600,14 @@ nextjs-portal {
 .pixel-blast {
   left: 62%;
   top: 42%;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   background: #fff36a;
-  box-shadow: 0 0 0 8px rgba(255,43,214,.45);
+  box-shadow:
+    -16px 0 0 #ff2bd6,
+    16px 0 0 #ff2bd6,
+    0 -16px 0 #00e5ff,
+    0 16px 0 #00e5ff;
   animation: blink 0.5s steps(2) infinite;
 }
 
@@ -540,8 +628,14 @@ nextjs-portal {
   width: 160px;
   height: 42px;
   background: #6ad66f;
-  clip-path: polygon(0 0, 100% 0, 78% 100%, 22% 100%);
-  box-shadow: 0 18px 0 #9c7442;
+  clip-path: none;
+  box-shadow:
+    16px 16px 0 #9c7442,
+    32px 32px 0 #7b4a28,
+    80px 24px 0 #9c7442,
+    112px 16px 0 #7b4a28,
+    24px -12px 0 #45df76,
+    112px -12px 0 #45df76;
   animation: floaty 2.6s ease-in-out infinite;
 }
 
@@ -564,7 +658,11 @@ nextjs-portal {
   width: 10px;
   height: 10px;
   background: #fff36a;
-  box-shadow: 0 0 0 4px rgba(255,255,255,.45);
+  box-shadow:
+    -8px 0 0 rgba(255,255,255,.7),
+    8px 0 0 rgba(255,255,255,.7),
+    0 -8px 0 rgba(255,255,255,.7),
+    0 8px 0 rgba(255,255,255,.7);
   animation: twinkle 1s steps(2) infinite;
 }
 
