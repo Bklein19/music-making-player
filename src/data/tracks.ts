@@ -8,6 +8,13 @@ export type Track = {
 
 export const tracks: Track[] = [
   {
+    "title": "Start Your Engines Type Beat",
+    "file": "start_your_engines_type_beat.wav",
+    "src": "/audio/start_your_engines_type_beat.wav",
+    "size": 14393950,
+    "updatedAt": "2026-07-02T06:20:26.031Z"
+  },
+  {
     "title": "Main Menu Type Beat",
     "file": "main_menu_type_beat.wav",
     "src": "/audio/main_menu_type_beat.wav",
