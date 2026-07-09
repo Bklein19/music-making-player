@@ -8,6 +8,20 @@ export type Track = {
 
 export const tracks: Track[] = [
   {
+    "title": "Tokyo Fakeout Alien Type Beat",
+    "file": "tokyo_fakeout_alien_type_beat.wav",
+    "src": "/audio/tokyo_fakeout_alien_type_beat.wav",
+    "size": 11338846,
+    "updatedAt": "2026-07-09T04:03:44.274Z"
+  },
+  {
+    "title": "Terraria Plucking Type Beat",
+    "file": "terraria_plucking_type_beat.wav",
+    "src": "/audio/terraria_plucking_type_beat.wav",
+    "size": 9071710,
+    "updatedAt": "2026-07-09T03:07:58.186Z"
+  },
+  {
     "title": "Alien Standoff Remastered Type Beat",
     "file": "alien_standoff_remastered_type_beat.wav",
     "src": "/audio/alien_standoff_remastered_type_beat.wav",
