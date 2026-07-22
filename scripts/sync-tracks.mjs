@@ -12,7 +12,9 @@ function titleFromFile(file) {
     .replace(/[_-]+/g, " ")
     .replace(/\s+/g, " ")
     .trim()
-    .replace(/\b\w/g, (match) => match.toUpperCase());
+    .split(" ")
+    .map((word) => word ? `${word[0].toLocaleUpperCase()}${word.slice(1)}` : word)
+    .join(" ");
 }
 
 await mkdir(audioDir, { recursive: true });

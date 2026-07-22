@@ -8,6 +8,13 @@ export type Track = {
 
 export const tracks: Track[] = [
   {
+    "title": "Güiro Type Beat",
+    "file": "Güiro_type_beat.wav",
+    "src": "/audio/G%C3%BCiro_type_beat.wav",
+    "size": 17356894,
+    "updatedAt": "2026-07-22T02:05:43.737Z"
+  },
+  {
     "title": "Soft Guitar Or Is It Type Beat",
     "file": "soft_guitar_or_is_it_type_beat.wav",
     "src": "/audio/soft_guitar_or_is_it_type_beat.wav",
